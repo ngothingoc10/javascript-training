@@ -16,3 +16,15 @@ function toggleClass() {
   var element = document.getElementById("logo");
   element.classList.toggle("title");
 }
+
+  // Select div
+  const div = document.querySelector('div');
+  console.log('div ', div);
+
+  // Apply style to div
+  // div.setAttribute('style', 'text-align: center');
+
+div.style.height = '200px';
+div.style.width = '200px';
+// div.style.border = '2px solid black';
+div.style.textAlign = 'center';
