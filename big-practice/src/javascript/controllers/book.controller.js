@@ -14,8 +14,9 @@ export class Controller {
     this.view.showBookList(this.model.bookList);
   }
 
-  async handleDeleteBook() {
-    
+  async handleDeleteBook(id) {
+    const book = await this.model.deleteBook(id);
+    this.onCourseListChanged(this.model.courses);
   }
 
 
