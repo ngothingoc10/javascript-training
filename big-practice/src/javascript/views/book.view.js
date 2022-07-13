@@ -1,11 +1,13 @@
 class View {
   constructor() {
-    this.bookList = document.getElementById('book-list');
+
   }
 
-  showBookList = async (bookList) => {
-    if (bookList.length) {
-      bookList.forEach((book) => {
+  showBookList = async (books) => {
+    const bookList = document.getElementById('book-list');
+
+    if (books.length) {
+      books.forEach((book) => {
         const bookItem = document.createElement('tr');
         const bookId = document.createElement('td');
         bookId.textContent = book.id;
@@ -42,7 +44,7 @@ class View {
         deleteBtn.appendChild(deleteBtnImage);
 
         bookItem.append(bookId, bookCover, bookName, bookAuthor, bookEdition, bookDeletion);
-        this.bookList.appendChild(bookItem);
+        bookList.appendChild(bookItem);
       });
     }
   }

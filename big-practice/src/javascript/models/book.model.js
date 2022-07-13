@@ -15,7 +15,7 @@ class Model {
       this.bookList = await getRequest('/books');
       return this.bookList;
     } catch (error) {
-      console.log(error);
+      console.log('HIHI' + error);
     }
   };
 }
