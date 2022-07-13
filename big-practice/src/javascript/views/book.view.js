@@ -8,6 +8,7 @@ export class View {
     if (books.length) {
       books.forEach((book) => {
         const bookItem = document.createElement('tr');
+        bookItem.id = `book-item-${book.id}`;
         const bookId = document.createElement('td');
         bookId.textContent = book.id;
 

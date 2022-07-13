@@ -6,9 +6,17 @@ export class Controller {
   }
 
   async init() {
+    this.handleShowBook();
+  };
+
+  async handleShowBook() {
     await this.model.getBookList();
     this.view.showBookList(this.model.bookList);
-  };
+  }
+
+  async handleDeleteBook() {
+    
+  }
 
 
 
