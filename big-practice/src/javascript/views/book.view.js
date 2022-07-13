@@ -1,11 +1,10 @@
-class View {
+ export class View {
   constructor() {
+    this.bookList = document.getElementById('book-list');
 
   }
 
   showBookList = async (books) => {
-    const bookList = document.getElementById('book-list');
-
     if (books.length) {
       books.forEach((book) => {
         const bookItem = document.createElement('tr');
@@ -44,10 +43,8 @@ class View {
         deleteBtn.appendChild(deleteBtnImage);
 
         bookItem.append(bookId, bookCover, bookName, bookAuthor, bookEdition, bookDeletion);
-        bookList.appendChild(bookItem);
+        this.bookList.appendChild(bookItem);
       });
     }
   }
 }
-
-export {View} 
