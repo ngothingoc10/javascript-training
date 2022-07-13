@@ -1,10 +1,10 @@
- export class View {
+export class View {
   constructor() {
     this.bookList = document.getElementById('book-list');
 
   }
 
-  showBookList = async (books) => {
+  async showBookList(books) {
     if (books.length) {
       books.forEach((book) => {
         const bookItem = document.createElement('tr');
@@ -37,7 +37,7 @@
         const bookDeletion = document.createElement('td');
         const deleteBtn = document.createElement('button');
         const deleteBtnImage = document.createElement('img');
-        deleteBtnImage.src =  require('../../assets/images/delete-icon.svg');
+        deleteBtnImage.src = require('../../assets/images/delete-icon.svg');
         deleteBtnImage.alt = 'Delete Icon';
         bookDeletion.appendChild(deleteBtn);
         deleteBtn.appendChild(deleteBtnImage);
