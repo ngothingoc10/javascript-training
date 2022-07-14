@@ -6,15 +6,16 @@ export class Model {
   }
 
   async getBookList() {
-    this.bookList = await this.bookHelper.getRequest(`/book`) || [];
+    this.bookList = await this.bookHelper.getRequest(`/books`) || [];
     return this.bookList;
   };
 
   async deleteBook(id) {
+    console.log(id);
     const res = await this.bookHelper.deleteRequest(`/books/${id}`);
     if (res) {
       const itemIndex = this.bookList.findIndex(item => item.id === id);
       this.bookList.splice(itemIndex, 1);
     }
-  };
+  }
 }

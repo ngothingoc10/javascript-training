@@ -1,16 +1,21 @@
 export class View {
   constructor() {
     this.bookList = document.getElementById('book-list');
-
+    this.btnModalDelete = document.getElementById('btn-modal-delete');
+    this.btnModalCancel = document.getElementById('btn-modal-cancel');
+    this.deleteModal = document.getElementById('delete-modal');
   }
 
-  async showBookList(books) {
+  showBookList(books) {
+    this.bookList.innerHTML = '';
     if (books.length) {
+      let count = 0;
       books.forEach((book) => {
         const bookItem = document.createElement('tr');
-        bookItem.id = `book-item-${book.id}`;
+        bookItem.id = book.id;
         const bookId = document.createElement('td');
-        bookId.textContent = book.id;
+        count = count + 1;
+        bookId.textContent = count;
 
         const bookCover = document.createElement('td');
         const bookCoverLink = document.createElement('a');
@@ -29,6 +34,7 @@ export class View {
 
         const bookEdition = document.createElement('td');
         const editBtn = document.createElement('button');
+        editBtn.classList.add('edit-btn');
         const editBtnImage = document.createElement('img');
         editBtnImage.src = require('../../assets/images/edit-icon.svg');
         editBtnImage.alt = 'Edit Icon';
@@ -37,9 +43,13 @@ export class View {
 
         const bookDeletion = document.createElement('td');
         const deleteBtn = document.createElement('button');
+        deleteBtn.type = 'button';
+        deleteBtn.dataset.toggle = 'modal';
+        deleteBtn.dataset.target = '#delete-modal';
         const deleteBtnImage = document.createElement('img');
         deleteBtnImage.src = require('../../assets/images/delete-icon.svg');
         deleteBtnImage.alt = 'Delete Icon';
+        deleteBtnImage.classList.add('edit-btn__img');
         bookDeletion.appendChild(deleteBtn);
         deleteBtn.appendChild(deleteBtnImage);
 
@@ -48,4 +58,36 @@ export class View {
       });
     }
   }
+
+  removeBook(id) {
+    const removedElement = document.getElementById(id);
+    console.log('curr', removedElement)
+    let el = removedElement.nextSibling;
+    console.log('el', el);
+
+    while (el) {
+      console.log(el);
+      el.firstChild.textContent = parseInt(el.firstChild.textContent) - 1;
+      el = el.nextSibling;
+    }
+
+    this.bookList.removeChild(removedElement);
+  }
+
+  bindDeleteBook(handleDeleteBook) {
+    this.bookList.addEventListener('click', event => {
+      console.log(event.target);
+      if (event.target.className === 'edit-btn__img') {
+        this.btnModalDelete.addEventListener('click', () => {
+
+          const id = event.target.parentElement.parentElement.parentElement.id;
+          console.log(id, id);
+          handleDeleteBook(id);
+          // this.closeDeleteBookModal();
+        }
+        )
+      }
+    })
+  }
 }
+

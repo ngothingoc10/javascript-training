@@ -13,7 +13,7 @@ export class BookHelper {
     try {
       const res = await fetch(API_HOST + endpoint, options);
       if (!res.ok) {
-        const message = `An error has occured: ${response.status}`;
+        const message = `An error has occured: ${res.status}`;
         console.log(message);
         return null;
       }
@@ -30,13 +30,12 @@ export class BookHelper {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-      },
-      body
+      }
     }
     try {
       const res = await fetch(API_HOST + endpoint, options);
       if (!res.ok) {
-        const message = `An error has occured: ${response.status}`;
+        const message = `An error has occured: ${res.status}`;
         console.log(message);
         return false;
       }

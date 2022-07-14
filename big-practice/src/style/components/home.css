@@ -38,10 +38,14 @@
   background: rgba(22, 99, 15, 0.81);
   z-index: -1;
   min-width: 330px;
+  min-height: 1024px;
+  width: 100%;
 }
 
 .layout-col-main {
   flex: 3;
+  min-height: 1024px;
+  width: 100%;
 }
 
 .creating-logo {
