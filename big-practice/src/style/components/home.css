@@ -51,7 +51,7 @@
 .creating-logo {
   float: right;
   display: flex;
-  align-items: center; 
+  align-items: center;
   margin: 15px 97px 0px 0px;
 }
 
@@ -73,7 +73,7 @@
   background: #fff;
   padding: 20px 25px;
   border-radius: 100px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
 .table {
@@ -127,4 +127,54 @@
 .book-cover {
   width: 55px;
   height: 65px;
+}
+
+.modal-content--delete {
+  background-color: #26D7AC;
+  border: none;
+}
+
+.modal-header--delete {
+  border: none;
+}
+
+.modal-title--delete {
+  width: 100%;
+  text-align: center;
+  font-family: 'Roboto Bold';
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.modal-body--delete p {
+  font-family: 'Roboto Light';
+  font-size: 16px;
+  text-align: center;
+  color: #000000;
+}
+
+.btn-secondary--delete {
+  background-color: rgba(22, 99, 15, 0.81);
+  border: none;
+  margin-right: 100px;
+}
+
+.btn-primary--delete {
+  background-color: #F24B4B;
+  border: none;
+  margin-left: 100px;
+}
+
+.btn-secondary--delete:hover {
+  background-color: rgba(22, 99, 15, 0.81);
+}
+
+.btn-primary--delete:hover {
+  background-color: #F24B4B;
+}
+
+.modal-footer--delete {
+  justify-content: center;
+  border: none;
 }
