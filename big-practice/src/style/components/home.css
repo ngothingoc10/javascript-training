@@ -89,7 +89,6 @@
   font-family: 'Roboto Medium';
   font-size: 20px;
   line-height: 25px;
-  /* color: #000000; */
   color: white;
 }
 
@@ -129,20 +128,20 @@
   height: 65px;
 }
 
-.modal-content--delete {
-  background-color: #26D7AC;
-  border: none;
+.modal-dialog-delete {
+  margin-top: 200px;
 }
 
 .modal-header--delete {
   border: none;
+  background-color:darkgrey;
 }
 
 .modal-title--delete {
   width: 100%;
   text-align: center;
   font-family: 'Roboto Bold';
-  font-size: 24px;
+  font-size: 20px;
   line-height: 28px;
   color: #000000;
 }
@@ -154,27 +153,27 @@
   color: #000000;
 }
 
-.btn-secondary--delete {
-  background-color: rgba(22, 99, 15, 0.81);
-  border: none;
-  margin-right: 100px;
-}
-
 .btn-primary--delete {
-  background-color: #F24B4B;
+  background-color: rgba(22, 99, 15, 0.81);
   border: none;
-  margin-left: 100px;
 }
 
-.btn-secondary--delete:hover {
-  background-color: rgba(22, 99, 15, 0.81);
+.btn-secondary--delete {
+  background-color: #F24B4B ;
+  border: none;
 }
 
 .btn-primary--delete:hover {
-  background-color: #F24B4B;
+  background-color: rgba(22, 99, 15, 0.81);
+}
+
+.btn-secondary--delete:hover {
+  background-color:#F24B4B;
 }
 
 .modal-footer--delete {
-  justify-content: center;
+  justify-content: space-between;
+  width: 250px;
+  margin: 0 auto;
   border: none;
 }
