@@ -75,19 +75,17 @@ export class View {
     removedElement.remove();
   }
 
-  bindDeleteBook(handleDeleteBook) {
-    this.bookList.addEventListener('click', function handleRemoveBook(event) {
-      console.log(event.target);
-      if (event.target.className === 'edit-btn__img') {
-        const modalDeleteBtn = document.getElementById('btn-modal-delete');
-        modalDeleteBtn.addEventListener('click', function handleConfirmRemoveBook() {
-          this.removeEventListener('click', handleConfirmRemoveBook);
-          console.log('this', this);
-          const id = event.target.parentElement.parentElement.parentElement.id;
-          console.log(id, id);
-          handleDeleteBook(id);
-        });
-      }
+  bindDeleteBook() {
+    this.bookList.addEventListener('click', (event) => {
+      console.log('this in bindDeleteBook', this);
+      this.btnModalDelete.dataset.id = event.target.parentElement.parentElement.parentElement.id;
+    })
+  }
+
+  bindConfirmDeleteBook(handleConfirmDeleteBook) {
+    this.deleteModal.addEventListener('click', () => {
+      const deletedBookId = this.btnModalDelete.dataset.id;
+      handleConfirmDeleteBook(deletedBookId);
     })
   }
 }

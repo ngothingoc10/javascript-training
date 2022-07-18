@@ -4,8 +4,8 @@ export class Controller {
     this.view = view;
     this.init();
 
-    this.view.bindDeleteBook(this.handleDeleteBook.bind(this));
-    // this.view.bindConfirmDeleteBook(this.handleConfirmDeleteBook.bind(this));
+    this.view.bindDeleteBook();
+    this.view.bindConfirmDeleteBook(this.handleConfirmDeleteBook.bind(this));
   }
 
   async init() {
@@ -17,15 +17,10 @@ export class Controller {
     this.view.showBookList(this.model.bookList);
   }
 
-  async handleDeleteBook(id) {
+  async handleConfirmDeleteBook(id) {
     console.log(id);
     await this.model.deleteBook(id);
     this.view.removeBook(id);
   }
-
-  // async  handleConfirmDeleteBook() {
-  //   await this.model.deleteBook(this.selectedBookId);
-  //   this.view.showBookList(this.model.bookList);
-  // }
 
 }
