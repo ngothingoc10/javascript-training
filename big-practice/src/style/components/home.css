@@ -1,53 +1,3 @@
-.header__logo {
-  width: 300px;
-  margin: 47px 0px 0px 19px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  vertical-align: middle;
-}
-
-.logo__image {
-  width: 100px;
-  height: 82px;
-}
-
-.logo__text {
-  font-family: 'Roboto Black Italic';
-  font-size: 24px;
-  line-height: 28px;
-  text-transform: uppercase;
-  text-align: center;
-  color: white;
-  letter-spacing: 2px;
-}
-
-.page-main {
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.wrap {
-  display: flex;
-}
-
-.layout-col-left {
-  flex: 1;
-  background: rgba(22, 99, 15, 0.81);
-  z-index: -1;
-  min-width: 330px;
-  min-height: 100wh;
-  width: 100%;
-}
-
-.layout-col-main {
-  flex: 3;
-  min-height: 100vh;
-  width: 100%;
-}
-
 .creating-logo {
   float: right;
   display: flex;
@@ -153,7 +103,7 @@
   color: #000000;
 }
 
-.btn-primary--delete {
+/* .btn-primary--delete {
   background-color: rgba(22, 99, 15, 0.81);
   border: none;
 }
@@ -169,7 +119,7 @@
 
 .btn-secondary--delete:hover {
   background-color:#F24B4B;
-}
+} */
 
 .modal-footer--delete {
   justify-content: space-between;
