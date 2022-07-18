@@ -3,13 +3,12 @@ export class Controller {
     this.model = model;
     this.view = view;
     this.init();
-
-    this.view.bindDeleteBook();
-    this.view.bindConfirmDeleteBook(this.handleConfirmDeleteBook.bind(this));
   }
 
   async init() {
     this.handleShowBooks();
+    this.view.bindDeleteBook();
+    this.view.bindConfirmDeleteBook(this.handleConfirmDeleteBook.bind(this));
   };
 
   async handleShowBooks() {

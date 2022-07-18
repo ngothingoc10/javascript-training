@@ -103,24 +103,6 @@
   color: #000000;
 }
 
-/* .btn-primary--delete {
-  background-color: rgba(22, 99, 15, 0.81);
-  border: none;
-}
-
-.btn-secondary--delete {
-  background-color: #F24B4B ;
-  border: none;
-}
-
-.btn-primary--delete:hover {
-  background-color: rgba(22, 99, 15, 0.81);
-}
-
-.btn-secondary--delete:hover {
-  background-color:#F24B4B;
-} */
-
 .modal-footer--delete {
   justify-content: space-between;
   width: 250px;
