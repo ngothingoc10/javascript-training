@@ -1,9 +1,15 @@
-export class View {
+export class HomeView {
   constructor() {
     this.bookList = document.getElementById('book-list');
     this.btnModalDelete = document.getElementById('btn-modal-delete');
     this.btnModalCancel = document.getElementById('btn-modal-cancel');
     this.deleteModal = document.getElementById('delete-modal');
+    this.init()
+  }
+  init() {
+    const createBookPage = require('../../create-book.html');
+    const link = document.getElementById('link-to-create-page');
+    link.setAttribute('href', createBookPage)
   }
 
   showBookList(books) {

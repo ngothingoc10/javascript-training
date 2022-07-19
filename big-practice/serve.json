@@ -1,6 +1,15 @@
 {
   "public": "dist",
-  "rewrites": [{ "source": "**", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/create-book",
+      "destination": "/create-book.html"
+    }
+  ],
   "headers": [
     {
       "source": "**",

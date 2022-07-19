@@ -11,11 +11,15 @@ export class Model {
   };
 
   async deleteBook(id) {
-    console.log(id);
     const res = await this.bookHelper.deleteRequest(`/books/${id}`);
     if (res) {
       const itemIndex = this.bookList.findIndex(item => item.id === id);
       this.bookList.splice(itemIndex, 1);
     }
+  }
+
+  async creatBook (body) {
+    const res = await this.bookHelper.createRequest(`/books`, body);
+    console.log('Them sach');
   }
 }

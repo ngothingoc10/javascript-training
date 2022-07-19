@@ -61,12 +61,12 @@ export class BookHelper {
       const res = await fetch(API_HOST + endpoint, options);
       if (!res.ok) {
         console.log("err", res);
-        return null;
+        return false;
       }
       return await res.json();
     } catch (error) {
       console.log(error);
-      return null;
+      return false;
     }
   }
 

@@ -10,7 +10,7 @@
 .form-content {
   display: flex;
   width: 800px;
-  height: 420px;
+  height: 500px;
   margin: 20px auto;
   padding: 20px 20px;
 
@@ -24,6 +24,16 @@
   flex: 1;
   height: 100%;
   margin-right: 50px;
+}
+
+.form-content__left figure {
+  width: 250px;
+  height: 300px;
+}
+
+.form-content__left img {
+  width: 100%;
+  height: 100%;
 }
 
 .book-cover {
