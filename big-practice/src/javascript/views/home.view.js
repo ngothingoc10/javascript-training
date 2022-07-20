@@ -7,7 +7,7 @@ export class HomeView {
   }
 
   showBookList(books) {
-    this.bookList.innerHTML = '';
+    // this.bookList.innerHTML = '';
     if (books.length) {
       let count = 0;
       books.forEach((book) => {

@@ -9,20 +9,12 @@ export class BookHelper {
         'Content-Type': 'application/json',
       },
     }
-
-    try {
-      const res = await fetch(API_HOST + endpoint, options);
-      if (!res.ok) {
-        const message = `An error has occured: ${res.status}`;
-        console.log(message);
-        return null;
-      }
-      return await res.json();
-
-    } catch (error) {
-      console.log(error);
-      return null;
+    const res = await fetch(API_HOST + endpoint, options);
+    if (!res.ok) {
+      throw new Error(`An error has occured: ${res.status}`);
     }
+    
+    return await res.json();
   }
 
   async deleteRequest(endpoint) {

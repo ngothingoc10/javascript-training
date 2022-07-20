@@ -12,8 +12,8 @@ export class HomeController {
   };
 
   async handleShowBooks() {
-    await this.model.getBookList();
-    this.homeView.showBookList(this.model.bookList);
+    const bookList = await this.model.getBookList();
+    this.homeView.showBookList(bookList);
   }
 
   async handleConfirmDeleteBook(id) {
