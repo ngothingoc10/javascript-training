@@ -13,8 +13,8 @@ export class BookHelper {
     if (!res.ok) {
       throw new Error(`An error has occured: ${res.status}`);
     }
-    
-    return await res.json();
+    const bookList = await res.json();
+    return bookList;
   }
 
   async deleteRequest(endpoint) {
@@ -24,20 +24,12 @@ export class BookHelper {
         'Content-Type': 'application/json',
       }
     }
-    try {
       const res = await fetch(API_HOST + endpoint, options);
       if (!res.ok) {
-        const message = `An error has occured: ${res.status}`;
-        console.log(message);
-        return false;
+        throw new Error(`An error has occured: ${res.status}`);
       }
-      return true;
-
-    } catch (error) {
-      console.log(error);
-      return false;
-    }
   }
+
   async createRequest(endpoint, body) {
     const requestBody = JSON.stringify(body);
 
@@ -48,18 +40,10 @@ export class BookHelper {
       },
       body: requestBody
     }
-
-    try {
       const res = await fetch(API_HOST + endpoint, options);
-      if (!res.ok) {
-        console.log("err", res);
-        return false;
+       if (!res.ok) {
+        throw new Error(`An error has occured: ${res.status}`);
       }
-      return await res.json();
-    } catch (error) {
-      console.log(error);
-      return false;
-    }
   }
 
   async updateRequest(endpoint, body) {

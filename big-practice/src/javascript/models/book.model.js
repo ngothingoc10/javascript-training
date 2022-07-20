@@ -1,31 +1,36 @@
 import { BookHelper } from '../helpers/book.helper';
 export class Model {
   constructor() {
-    this.bookList = [];
     this.bookHelper = new BookHelper();
   }
 
   async getBookList() {
     try {
-      this.bookList = await this.bookHelper.getRequest(`/books`);
-      return this.bookList;
+      const bookList = await this.bookHelper.getRequest(`/books`);
+      return bookList;
     } catch (error) {
       console.log(error);
-      this.bookList = [];
-      return this.bookList;
+      return [];
     }
   };
 
   async deleteBook(id) {
-    const res = await this.bookHelper.deleteRequest(`/books/${id}`);
-    if (res) {
-      const itemIndex = this.bookList.findIndex(item => item.id === id);
-      this.bookList.splice(itemIndex, 1);
+    try {
+      const res = await this.bookHelper.deleteRequest(`/books/${id}`);
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
     }
   }
 
-  async creatBook (body) {
-    const res = await this.bookHelper.createRequest(`/books`, body);
-    console.log('Them sach');
+  async creatBook(body) {
+    try {
+      const res = await this.bookHelper.createRequest(`/books`, body);
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
   }
 }
