@@ -1,6 +1,6 @@
 export class HomeController {
-  constructor(model, homeView) {
-    this.model = model;
+  constructor(bookModel, homeView) {
+    this.bookModel = bookModel;
     this.homeView = homeView;
     this.init();
   }
@@ -12,12 +12,12 @@ export class HomeController {
   };
 
   async handleShowBooks() {
-    const bookList = await this.model.getBookList();
+    const bookList = await this.bookModel.getBookList();
     this.homeView.showBookList(bookList);
   }
 
   async handleConfirmDeleteBook(id) {
-   const res =  await this.model.deleteBook(id);
+   const res =  await this.bookModel.deleteBook(id);
    if (res) {
     this.homeView.removeBook(id);
    }

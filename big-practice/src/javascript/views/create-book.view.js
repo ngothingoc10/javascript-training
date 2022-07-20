@@ -15,6 +15,17 @@ export class CreateBookView {
     this.coverImage = document.getElementById('cover-image');
   }
 
+  showCategories(categories) {
+    if (categories.length) {
+      categories.forEach((category) => {
+        const categoryItem = document.createElement('option');
+        categoryItem.value = category.id;
+        categoryItem.innerText = category.categoryName;
+        this.category.appendChild(categoryItem);
+      })
+    }
+  }
+
   redirectHomePage() {
     window.location.href = './index.html';
   }
@@ -25,15 +36,16 @@ export class CreateBookView {
     })
   }
 
-  bindCancelCreateBook () {
+  bindCancelCreateBook() {
     this.cancelBtn.addEventListener('click', () => {
       this.redirectHomePage();
     })
   }
 
   bindCreateBook(handleCreateBook) {
-    this.createBookBtn.addEventListener('click', () => {
+    this.createBookBtn.addEventListener('click', (event) => {
       // Validation create book form
+      event.preventDefault();
       if (this.bookName.value === '') {
         this.bookNameMess.style.display = 'block';
       } else {
@@ -44,13 +56,13 @@ export class CreateBookView {
       } else {
         this.authorMess.style.display = 'none';
       }
-      if (this.coverLink.value == '') {
+      if (this.coverLink.value === '') {
         this.coverLinkMess.style.display = 'block';
       } else {
         this.coverLinkMess.style.display = 'none';
 
       }
-      if (this.category.value == '') {
+      if (this.category.value === '') {
         this.categoryMess.style.display = 'block';
       } else {
         this.categoryMess.style.display = 'none';
@@ -65,10 +77,9 @@ export class CreateBookView {
           name: this.bookName.value,
           author: this.author.value,
           cover: this.coverLink.value,
-          category: this.category.value,
+          category: parseInt(this.category.value),
           description: this.description.value
         }
-        console.log('body', body);
         handleCreateBook(body);
       }
     })

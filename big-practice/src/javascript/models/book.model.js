@@ -1,5 +1,5 @@
 import { BookHelper } from '../helpers/book.helper';
-export class Model {
+export class BookModel {
   constructor() {
     this.bookHelper = new BookHelper();
   }

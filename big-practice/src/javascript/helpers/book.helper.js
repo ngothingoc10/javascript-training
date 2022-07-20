@@ -24,15 +24,14 @@ export class BookHelper {
         'Content-Type': 'application/json',
       }
     }
-      const res = await fetch(API_HOST + endpoint, options);
-      if (!res.ok) {
-        throw new Error(`An error has occured: ${res.status}`);
-      }
+    const res = await fetch(API_HOST + endpoint, options);
+    if (!res.ok) {
+      throw new Error(`An error has occured: ${res.status}`);
+    }
   }
 
   async createRequest(endpoint, body) {
     const requestBody = JSON.stringify(body);
-
     const options = {
       method: 'POST',
       headers: {
@@ -40,10 +39,11 @@ export class BookHelper {
       },
       body: requestBody
     }
-      const res = await fetch(API_HOST + endpoint, options);
-       if (!res.ok) {
-        throw new Error(`An error has occured: ${res.status}`);
-      }
+    const res = await fetch(API_HOST + endpoint, options);
+    console.log('res1', res.status);
+    if (!res.ok) {
+      throw new Error(`An error has occured: ${res.status}`);
+    }
   }
 
   async updateRequest(endpoint, body) {

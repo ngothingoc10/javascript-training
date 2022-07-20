@@ -55,7 +55,7 @@ export class HomeView {
 
         bookItem.append(bookId, bookCover, bookName, bookAuthor, bookEdition, bookDeletion);
         this.bookList.appendChild(bookItem);
-      });
+      })
     }
   }
 
