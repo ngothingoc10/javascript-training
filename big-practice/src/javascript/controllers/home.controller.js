@@ -19,6 +19,7 @@ export class HomeController {
   async handleConfirmDeleteBook(id) {
     console.log(id);
     await this.model.deleteBook(id);
+    console.log('Ngoc');
     this.homeView.removeBook(id);
   }
 

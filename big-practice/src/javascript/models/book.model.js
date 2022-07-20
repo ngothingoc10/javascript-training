@@ -11,7 +11,7 @@ export class Model {
   };
 
   async deleteBook(id) {
-    const res = await this.bookHelper.deleteRequest(`/books/${id}`);
+    const res = await this.bookHelper.deleteRequest(`/book/${id}`);
     if (res) {
       const itemIndex = this.bookList.findIndex(item => item.id === id);
       this.bookList.splice(itemIndex, 1);
