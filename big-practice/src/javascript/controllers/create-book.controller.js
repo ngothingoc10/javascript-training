@@ -24,7 +24,7 @@ export class CreateBookController {
       this.createBookView.redirectHomePage();
     }
     else {
-      alert('Creating book failed!');
+      this.createBookView.alertMess();
     }
   }
 }

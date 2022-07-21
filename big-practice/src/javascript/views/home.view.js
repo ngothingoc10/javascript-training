@@ -75,6 +75,10 @@ export class HomeView {
     removedElement.remove();
   }
 
+  alertMess () {
+    alert('Delete book failed!');
+  }
+
   bindDeleteBook() {
     this.bookList.addEventListener('click', (event) => {
       if (event.target.className == 'delete-btn__img') {

@@ -20,6 +20,8 @@ export class HomeController {
    const res =  await this.bookModel.deleteBook(id);
    if (res) {
     this.homeView.removeBook(id);
+   } else {
+    this.homeView.alertMess();
    }
   }
 

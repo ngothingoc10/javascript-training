@@ -30,6 +30,10 @@ export class CreateBookView {
     window.location.href = './index.html';
   }
 
+  alertMess () {
+    alert('Creating book failed!');
+  }
+
   bindShowImage() {
     this.coverLink.addEventListener('blur', () => {
       this.coverImage.src = this.coverLink.value;
