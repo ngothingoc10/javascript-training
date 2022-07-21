@@ -8,6 +8,10 @@
     {
       "source": "/create-book",
       "destination": "/create-book.html"
+    },
+    {
+      "source": "/update-book",
+      "destination": "/update-book.html"
     }
   ],
   "headers": [

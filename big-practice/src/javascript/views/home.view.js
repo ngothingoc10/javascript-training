@@ -7,7 +7,6 @@ export class HomeView {
   }
 
   showBookList(books) {
-    // this.bookList.innerHTML = '';
     if (books.length) {
       let count = 0;
       books.forEach((book) => {
@@ -79,10 +78,13 @@ export class HomeView {
     alert('Delete book failed!');
   }
 
-  bindDeleteBook() {
+  bindBookActions() {
     this.bookList.addEventListener('click', (event) => {
       if (event.target.className == 'delete-btn__img') {
         this.btnModalDelete.dataset.id = event.target.parentElement.parentElement.parentElement.id;
+      }
+      if (event.target.className == 'edit-btn__img') {
+        window.location.href = './update-book.html';
       }
     })
   }
@@ -93,5 +95,4 @@ export class HomeView {
       handleConfirmDeleteBook(deletedBookId);
     })
   }
-
 }

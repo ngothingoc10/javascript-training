@@ -7,7 +7,7 @@ export class HomeController {
 
   async init() {
     this.handleShowBooks();
-    this.homeView.bindDeleteBook();
+    this.homeView.bindBookActions();
     this.homeView.bindConfirmDeleteBook(this.handleConfirmDeleteBook.bind(this));
   };
 
