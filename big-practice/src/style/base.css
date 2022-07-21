@@ -12,6 +12,13 @@ button {
   -moz-box-sizing: border-box;
 }
 
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 0;
+  width: 100%;
+}
+
 .btn {
   text-transform: uppercase
 }
@@ -53,19 +60,18 @@ button {
 
 .wrap {
   display: flex;
+  width: 100%;
 }
 
 .layout-col-left {
-  flex: 1;
   background: rgba(22, 99, 15, 0.81);
   z-index: -1;
   min-width: 330px;
   min-height: 100wh;
-  width: 100%;
+  width: 25%;
 }
 
 .layout-col-main {
-  flex: 3;
   min-height: 100vh;
-  width: 100%;
+  width: 75%;
 }

@@ -82,7 +82,6 @@ export class HomeView {
   bindDeleteBook() {
     this.bookList.addEventListener('click', (event) => {
       if (event.target.className == 'delete-btn__img') {
-        console.log('this in bindDeleteBook', this);
         this.btnModalDelete.dataset.id = event.target.parentElement.parentElement.parentElement.id;
       }
     })
@@ -95,11 +94,4 @@ export class HomeView {
     })
   }
 
-  // bindEditBook() {
-  //   this.bookList.addEventListener('click', (event) => {
-  //     if (event.target.className == 'edit-btn__img') {
-  //       console.log('this in bindEditBook');
-  //     }
-  //   })
-  // }
 }

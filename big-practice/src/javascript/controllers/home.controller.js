@@ -17,12 +17,13 @@ export class HomeController {
   }
 
   async handleConfirmDeleteBook(id) {
-   const res =  await this.bookModel.deleteBook(id);
-   if (res) {
-    this.homeView.removeBook(id);
-   } else {
-    this.homeView.alertMess();
-   }
+    console.log('this', this);
+    const res = await this.bookModel.deleteBook(id);
+    if (res) {
+      this.homeView.removeBook(id);
+    } else {
+      this.homeView.alertMess();
+    }
   }
 
 }
