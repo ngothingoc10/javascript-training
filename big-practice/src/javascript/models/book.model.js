@@ -12,7 +12,17 @@ export class BookModel {
       console.log(error);
       return [];
     }
-  };
+  }
+
+  async getBookById(bookId) {
+    try {
+      const book = await this.bookHelper.getRequest(`/books/${bookId}`);
+      return book;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
 
   async deleteBook(id) {
     try {
@@ -27,6 +37,16 @@ export class BookModel {
   async creatBook(body) {
     try {
       const res = await this.bookHelper.createRequest(`/books`, body);
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
+
+  async updateBook(body, bookId) {
+    try {
+      const res = await this.bookHelper.updateRequest(`/books/${bookId}`, body);
       return true;
     } catch (error) {
       console.log(error);

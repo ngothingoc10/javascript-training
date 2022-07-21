@@ -6,11 +6,11 @@
       "destination": "/index.html"
     },
     {
-      "source": "/create-book",
+      "source": "/create-book*",
       "destination": "/create-book.html"
     },
     {
-      "source": "/update-book",
+      "source": "/update-book.html*",
       "destination": "/update-book.html"
     }
   ],

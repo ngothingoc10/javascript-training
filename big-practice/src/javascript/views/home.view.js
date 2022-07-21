@@ -84,7 +84,8 @@ export class HomeView {
         this.btnModalDelete.dataset.id = event.target.parentElement.parentElement.parentElement.id;
       }
       if (event.target.className == 'edit-btn__img') {
-        window.location.href = './update-book.html';
+        const bookId = event.target.parentElement.parentElement.parentElement.id;
+        window.location.href = `/update-book?id=${bookId}`;
       }
     })
   }

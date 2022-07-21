@@ -40,18 +40,13 @@ export class BookHelper {
       body: requestBody
     }
     const res = await fetch(API_HOST + endpoint, options);
-    console.log('res1', res.status);
     if (!res.ok) {
       throw new Error(`An error has occured: ${res.status}`);
     }
   }
 
   async updateRequest(endpoint, body) {
-    if (typeof body === undefined) {
-      console.log('Not body in request.');
-    }
     const requestBody = JSON.stringify(body);
-
     const options = {
       method: 'PUT',
       headers: {
@@ -59,18 +54,12 @@ export class BookHelper {
       },
       body: requestBody
     }
-
-    try {
-      const res = await fetch(API_HOST + endpoint, options);
-      if (res.status !== 200) {
-        console.log("err", res);
-        return null;
-      }
-      return await res.json();
-    } catch (error) {
-      console.log(error);
-      return null;
+    console.log('option', options);
+    console.log(API_HOST + endpoint);
+    const res = await fetch(API_HOST + endpoint, options);
+    console.log('res', res);
+    if (!res.ok) {
+      throw new Error(`An error has occured: ${res.status}`);
     }
   }
-
 }
