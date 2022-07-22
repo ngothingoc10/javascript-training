@@ -2,6 +2,11 @@ import { API_HOST } from "../utils/constant";
 export class BookHelper {
   constructor() { }
 
+  /**
+   * Uses endpoint to get data by GET method
+   * @param {string} endpoint 
+   * @returns book list
+   */
   async getRequest(endpoint) {
     const options = {
       method: 'GET',
@@ -13,10 +18,14 @@ export class BookHelper {
     if (!res.ok) {
       throw new Error(`An error has occured: ${res.status}`);
     }
-    const bookList = await res.json();
-    return bookList;
+    const result = await res.json();
+    return result;
   }
 
+  /**
+   * Use endpoint to delete data by DETELE method
+   * @param {string} endpoint 
+   */
   async deleteRequest(endpoint) {
     const options = {
       method: 'DELETE',
@@ -30,6 +39,11 @@ export class BookHelper {
     }
   }
 
+  /**
+   * Use enpoint and body to send data to server by POST method
+   * @param {string} endpoint 
+   * @param {object} body 
+   */
   async createRequest(endpoint, body) {
     const requestBody = JSON.stringify(body);
     const options = {
@@ -45,6 +59,11 @@ export class BookHelper {
     }
   }
 
+  /**
+   * Use enpoint and body to send data to a server to update a resource by PUT method 
+   * @param {string} endpoint 
+   * @param {object} body 
+   */
   async updateRequest(endpoint, body) {
     const requestBody = JSON.stringify(body);
     const options = {

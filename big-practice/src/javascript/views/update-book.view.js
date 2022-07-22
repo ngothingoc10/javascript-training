@@ -15,13 +15,20 @@ export class UpdateBookView {
     this.coverImage = document.getElementById('cover-image');
   }
 
+  /**
+   * Get the book id from the querystring part of a URL
+   * @returns {string} book id
+   */
   getBookId() {
     const bookId = window.location.search.replace('?id=', '');
     return bookId;
   }
 
+  /**
+   * Get the book information to show on update form
+   * @param {object} book 
+   */
   showBookById(book) {
-    console.log(book);
     if (book) {
       this.bookName.value = book.name;
       this.author.value = book.author;
@@ -32,6 +39,10 @@ export class UpdateBookView {
     }
   }
 
+  /**
+   * Use the categories array to show on the updatings book page
+   * @param {array} categories 
+   */
   showCategories(categories) {
     if (categories.length) {
       categories.forEach((category) => {
@@ -43,29 +54,44 @@ export class UpdateBookView {
     }
   }
 
+  /**
+   * Redirect to home page from the update book page
+   */
   redirectHomePage() {
     window.location.href = './index.html';
   }
 
+  /**
+   * Take the message to notice of updating book is failed 
+   */
   alertMess() {
     alert('Update book failed!');
   }
 
+  /**
+   * Show the book cover image when remove focus from the text input contains cover link
+   */
   bindShowImage() {
     this.coverLink.addEventListener('blur', () => {
       this.coverImage.src = this.coverLink.value;
     })
   }
 
+  /**
+   * Redirect to the home page from the updating book page when click the cancel button
+   */
   bindCancelUpdateBook() {
     this.cancelBtn.addEventListener('click', () => {
       this.redirectHomePage();
     })
   }
 
+  /**
+   * Validate form and get the book information to upate book
+   * @param {function} handleUpdateBook 
+   */
   bindUpdateBook(handleUpdateBook) {
     this.updateBookBtn.addEventListener('click', (event) => {
-      // Validation create book form
       event.preventDefault();
       if (this.bookName.value === '') {
         this.bookNameMess.style.display = 'block';

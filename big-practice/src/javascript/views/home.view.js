@@ -6,6 +6,10 @@ export class HomeView {
     this.deleteModal = document.getElementById('delete-modal');
   }
 
+  /**
+   * Use the books array to show on the home page
+   * @param {array} books 
+   */
   showBookList(books) {
     if (books.length) {
       let count = 0;
@@ -58,11 +62,13 @@ export class HomeView {
     }
   }
 
+  /**
+   * Use the book id to remove row contain that book in table
+   * @param {string} id 
+   */
   removeBook(id) {
     const removedElement = document.getElementById(id);
-    console.log('curr', removedElement)
     let el = removedElement.nextSibling;
-    console.log('el', el);
 
     while (el) {
       console.log(el);

@@ -5,19 +5,32 @@ export class HomeController {
     this.init();
   }
 
+  /**
+  * Show book list after call API
+  * Attaching event handlers to specified elements on the home page
+  */
   async init() {
     this.handleShowBooks();
     this.homeView.bindBookActions();
     this.homeView.bindConfirmDeleteBook(this.handleConfirmDeleteBook.bind(this));
-  };
+  }
 
+  /**
+   * Get all books from the book model
+   * Show all books to the home page
+   */
   async handleShowBooks() {
     const bookList = await this.bookModel.getBookList();
     this.homeView.showBookList(bookList);
   }
 
+  /**
+   * Get id whose book is deleted form the home view
+   * If deleting is successfull, remove that book
+   * Else alert
+   * @param {string} id 
+   */
   async handleConfirmDeleteBook(id) {
-    console.log('this', this);
     const res = await this.bookModel.deleteBook(id);
     if (res) {
       this.homeView.removeBook(id);
@@ -25,5 +38,4 @@ export class HomeController {
       this.homeView.alertMess();
     }
   }
-
 }
