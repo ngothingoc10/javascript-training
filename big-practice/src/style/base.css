@@ -1,0 +1,19 @@
+/* .container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+} */
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
