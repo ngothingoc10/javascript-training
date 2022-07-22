@@ -3,7 +3,7 @@
   font-size: 36px;
   line-height: 42px;
   text-align: center;
-  color: #000000;
+  color: var(--primary-color);
   margin-top: 30px;
 }
 
@@ -14,8 +14,8 @@
   margin: 20px auto;
   padding: 20px 20px;
 
-  background: #FFFFFF;
-  border: 3px solid #000000;
+  background: var(--secondary-color);
+  border: 3px solid var(--primary-color);
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
 }
@@ -29,7 +29,7 @@
 .cover-wrap {
   width: 250px;
   height: 300px;
-  border: 2px solid #000000;
+  border: 2px solid var(--primary-color);
 }
 
 .cover-wrap img {
@@ -41,7 +41,7 @@
   font-family: 'Roboto Medium Italic';
   font-size: 15px;
   line-height: 24px;
-  color: #000000;
+  color: var(--primary-color);
   text-align: center;
 }
 
@@ -54,7 +54,7 @@
   font-family: 'Roboto Medium Italic';
   font-size: 15px;
   line-height: 24px;
-  color: #000000;
+  color: var(--primary-color);
 }
 
 .form-control--create::placeholder {
@@ -62,19 +62,19 @@
   font-size: 13px;
   line-height: 23px;
   letter-spacing: 1px;
-  color: #000000;
+  color: var(--primary-color);
 }
 
 .form-control--create {
   border-radius: 0;
   border-width: 0 0 1px;
-  border-color: #000000;
+  border-color: var(--primary-color);
 
   font-family: 'Roboto Light';
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 1px;
-  color: #000000;
+  color: var(--primary-color);
 }
 
 .form-control--create:focus {
@@ -88,7 +88,7 @@
   font-size: 14px;
   line-height: 23px;
   letter-spacing: 1px;
-  color: #000000;
+  color: var(--primary-color);
 }
 
 .form-select--create {

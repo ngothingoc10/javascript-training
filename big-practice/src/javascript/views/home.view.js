@@ -6,8 +6,11 @@ export class HomeView {
     this.deleteModal = document.getElementById('delete-modal');
   }
 
+  /**
+   * Use the books array to show on the home page
+   * @param {array} books 
+   */
   showBookList(books) {
-    // this.bookList.innerHTML = '';
     if (books.length) {
       let count = 0;
       books.forEach((book) => {
@@ -59,11 +62,13 @@ export class HomeView {
     }
   }
 
+  /**
+   * Use the book id to remove row contain that book in table
+   * @param {string} id 
+   */
   removeBook(id) {
     const removedElement = document.getElementById(id);
-    console.log('curr', removedElement)
     let el = removedElement.nextSibling;
-    console.log('el', el);
 
     while (el) {
       console.log(el);
@@ -79,10 +84,14 @@ export class HomeView {
     alert('Delete book failed!');
   }
 
-  bindDeleteBook() {
+  bindBookActions() {
     this.bookList.addEventListener('click', (event) => {
       if (event.target.className == 'delete-btn__img') {
         this.btnModalDelete.dataset.id = event.target.parentElement.parentElement.parentElement.id;
+      }
+      if (event.target.className == 'edit-btn__img') {
+        const bookId = event.target.parentElement.parentElement.parentElement.id;
+        window.location.href = `/update-book?id=${bookId}`;
       }
     })
   }
@@ -93,5 +102,4 @@ export class HomeView {
       handleConfirmDeleteBook(deletedBookId);
     })
   }
-
 }

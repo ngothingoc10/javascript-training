@@ -1,6 +1,6 @@
-export class CreateBookView {
+export class UpdateBookView {
   constructor() {
-    this.createBookBtn = document.getElementById('create-btn');
+    this.updateBookBtn = document.getElementById('update-btn');
     this.cancelBtn = document.getElementById('cancel-btn');
     this.bookName = document.getElementById('book-name');
     this.author = document.getElementById('author');
@@ -16,7 +16,31 @@ export class CreateBookView {
   }
 
   /**
-   * Use the categories array to show on the creating book page
+   * Get the book id from the querystring part of a URL
+   * @returns {string} book id
+   */
+  getBookId() {
+    const bookId = window.location.search.replace('?id=', '');
+    return bookId;
+  }
+
+  /**
+   * Get the book information to show on update form
+   * @param {object} book 
+   */
+  showBookById(book) {
+    if (book) {
+      this.bookName.value = book.name;
+      this.author.value = book.author;
+      this.coverLink.value = book.cover;
+      this.category.value = parseInt(book.category);
+      this.description.value = book.description;
+      this.coverImage.src = book.cover;
+    }
+  }
+
+  /**
+   * Use the categories array to show on the updatings book page
    * @param {array} categories 
    */
   showCategories(categories) {
@@ -31,7 +55,7 @@ export class CreateBookView {
   }
 
   /**
-   * Redirect to home page from the creating book page
+   * Redirect to home page from the update book page
    */
   redirectHomePage() {
     window.location.href = './index.html';
@@ -40,8 +64,8 @@ export class CreateBookView {
   /**
    * Take the message to notice of updating book is failed 
    */
-  alertMess () {
-    alert('Creating book failed!');
+  alertMess() {
+    alert('Update book failed!');
   }
 
   /**
@@ -54,20 +78,20 @@ export class CreateBookView {
   }
 
   /**
-   * Redirect to the home page from the creating book page when click the cancel button
+   * Redirect to the home page from the updating book page when click the cancel button
    */
-  bindCancelCreateBook() {
+  bindCancelUpdateBook() {
     this.cancelBtn.addEventListener('click', () => {
       this.redirectHomePage();
     })
   }
 
   /**
-   * Validate form and get the book information to creat book
-   * @param {function} handleCreateBook 
+   * Validate form and get the book information to upate book
+   * @param {function} handleUpdateBook 
    */
-  bindCreateBook(handleCreateBook) {
-    this.createBookBtn.addEventListener('click', (event) => {
+  bindUpdateBook(handleUpdateBook) {
+    this.updateBookBtn.addEventListener('click', (event) => {
       event.preventDefault();
       if (this.bookName.value === '') {
         this.bookNameMess.style.display = 'block';
@@ -100,10 +124,11 @@ export class CreateBookView {
           name: this.bookName.value,
           author: this.author.value,
           cover: this.coverLink.value,
-          category: parseInt(this.category.value),
+          category: this.category.value,
           description: this.description.value
         }
-        handleCreateBook(body);
+        const bookId = this.getBookId();
+        handleUpdateBook(body, bookId);
       }
     })
   }

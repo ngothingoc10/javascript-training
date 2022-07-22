@@ -15,12 +15,12 @@
   font-size: 24px;
   line-height: 28px;
   align-items: center;
-  color: #000000;
+  color: var(--primary-color);
 }
 
 .table-wrapper {
   min-width: 900px;
-  background: #fff;
+  background: var(--secondary-color);
   padding: 20px 25px;
   border-radius: 100px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -39,7 +39,7 @@
   font-family: 'Roboto Medium';
   font-size: 20px;
   line-height: 25px;
-  color: white;
+  color: var(--secondary-color);
 }
 
 .table__header tr th {
@@ -62,7 +62,7 @@
   font-family: 'Roboto Medium';
   font-size: 20px;
   line-height: 25px;
-  color: #000000;
+  color: var(--primary-color);
 }
 
 .table tbody tr:nth-of-type(odd) {
@@ -93,14 +93,14 @@
   font-family: 'Roboto Bold';
   font-size: 20px;
   line-height: 28px;
-  color: #000000;
+  color: var(--primary-color);
 }
 
 .modal-body--delete p {
   font-family: 'Roboto Light';
   font-size: 16px;
   text-align: center;
-  color: #000000;
+  color: var(--primary-color);
 }
 
 .modal-footer--delete {
