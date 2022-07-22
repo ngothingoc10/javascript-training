@@ -38,7 +38,7 @@ export class CreateBookView {
   }
 
   /**
-   * Take the message to notice of updating book is failed 
+   * Take the message to notice of creating book is failed 
    */
   alertMess () {
     alert('Creating book failed!');
