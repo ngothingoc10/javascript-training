@@ -13,17 +13,39 @@ export class BookHelper {
     try {
       const res = await fetch(API_HOST + endpoint, options);
       if (!res.ok) {
-        console.log("err", res);
+        const message = `An error has occured: ${res.status}`;
+        console.log(message);
         return null;
       }
       return await res.json();
+
     } catch (error) {
       console.log(error);
       return null;
     }
   }
 
+  async deleteRequest(endpoint) {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }
+    try {
+      const res = await fetch(API_HOST + endpoint, options);
+      if (!res.ok) {
+        const message = `An error has occured: ${res.status}`;
+        console.log(message);
+        return false;
+      }
+      return true;
 
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
   async createRequest(endpoint, body) {
     const requestBody = JSON.stringify(body);
 
@@ -64,29 +86,7 @@ export class BookHelper {
 
     try {
       const res = await fetch(API_HOST + endpoint, options);
-      if (!res.ok) {
-        console.log("err", res);
-        return null;
-      }
-      return await res.json();
-    } catch (error) {
-      console.log(error);
-      return null;
-    }
-  }
-
-  async deleteRequest(endpoint) {
-    const options = {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body
-    }
-
-    try {
-      const res = await fetch(API_HOST + endpoint, options);
-      if (!res.ok) {
+      if (res.status !== 200) {
         console.log("err", res);
         return null;
       }
