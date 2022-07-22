@@ -1,4 +1,4 @@
-export class View {
+export class HomeView {
   constructor() {
     this.bookList = document.getElementById('book-list');
     this.btnModalDelete = document.getElementById('btn-modal-delete');
@@ -7,7 +7,7 @@ export class View {
   }
 
   showBookList(books) {
-    this.bookList.innerHTML = '';
+    // this.bookList.innerHTML = '';
     if (books.length) {
       let count = 0;
       books.forEach((book) => {
@@ -34,10 +34,10 @@ export class View {
 
         const bookEdition = document.createElement('td');
         const editBtn = document.createElement('button');
-        editBtn.classList.add('edit-btn');
         const editBtnImage = document.createElement('img');
         editBtnImage.src = require('../../assets/images/edit-icon.svg');
         editBtnImage.alt = 'Edit Icon';
+        editBtnImage.classList.add('edit-btn__img');
         bookEdition.appendChild(editBtn);
         editBtn.appendChild(editBtnImage);
 
@@ -49,13 +49,13 @@ export class View {
         const deleteBtnImage = document.createElement('img');
         deleteBtnImage.src = require('../../assets/images/delete-icon.svg');
         deleteBtnImage.alt = 'Delete Icon';
-        deleteBtnImage.classList.add('edit-btn__img');
+        deleteBtnImage.classList.add('delete-btn__img');
         bookDeletion.appendChild(deleteBtn);
         deleteBtn.appendChild(deleteBtnImage);
 
         bookItem.append(bookId, bookCover, bookName, bookAuthor, bookEdition, bookDeletion);
         this.bookList.appendChild(bookItem);
-      });
+      })
     }
   }
 
@@ -75,17 +75,23 @@ export class View {
     removedElement.remove();
   }
 
+  alertMess () {
+    alert('Delete book failed!');
+  }
+
   bindDeleteBook() {
     this.bookList.addEventListener('click', (event) => {
-      console.log('this in bindDeleteBook', this);
-      this.btnModalDelete.dataset.id = event.target.parentElement.parentElement.parentElement.id;
+      if (event.target.className == 'delete-btn__img') {
+        this.btnModalDelete.dataset.id = event.target.parentElement.parentElement.parentElement.id;
+      }
     })
   }
 
   bindConfirmDeleteBook(handleConfirmDeleteBook) {
-    this.deleteModal.addEventListener('click', () => {
+    this.btnModalDelete.addEventListener('click', () => {
       const deletedBookId = this.btnModalDelete.dataset.id;
       handleConfirmDeleteBook(deletedBookId);
     })
   }
+
 }

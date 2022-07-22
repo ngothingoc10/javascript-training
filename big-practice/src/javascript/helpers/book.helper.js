@@ -9,20 +9,12 @@ export class BookHelper {
         'Content-Type': 'application/json',
       },
     }
-
-    try {
-      const res = await fetch(API_HOST + endpoint, options);
-      if (!res.ok) {
-        const message = `An error has occured: ${res.status}`;
-        console.log(message);
-        return null;
-      }
-      return await res.json();
-
-    } catch (error) {
-      console.log(error);
-      return null;
+    const res = await fetch(API_HOST + endpoint, options);
+    if (!res.ok) {
+      throw new Error(`An error has occured: ${res.status}`);
     }
+    const bookList = await res.json();
+    return bookList;
   }
 
   async deleteRequest(endpoint) {
@@ -32,23 +24,14 @@ export class BookHelper {
         'Content-Type': 'application/json',
       }
     }
-    try {
-      const res = await fetch(API_HOST + endpoint, options);
-      if (!res.ok) {
-        const message = `An error has occured: ${res.status}`;
-        console.log(message);
-        return false;
-      }
-      return true;
-
-    } catch (error) {
-      console.log(error);
-      return false;
+    const res = await fetch(API_HOST + endpoint, options);
+    if (!res.ok) {
+      throw new Error(`An error has occured: ${res.status}`);
     }
   }
+
   async createRequest(endpoint, body) {
     const requestBody = JSON.stringify(body);
-
     const options = {
       method: 'POST',
       headers: {
@@ -56,17 +39,10 @@ export class BookHelper {
       },
       body: requestBody
     }
-
-    try {
-      const res = await fetch(API_HOST + endpoint, options);
-      if (!res.ok) {
-        console.log("err", res);
-        return null;
-      }
-      return await res.json();
-    } catch (error) {
-      console.log(error);
-      return null;
+    const res = await fetch(API_HOST + endpoint, options);
+    console.log('res1', res.status);
+    if (!res.ok) {
+      throw new Error(`An error has occured: ${res.status}`);
     }
   }
 

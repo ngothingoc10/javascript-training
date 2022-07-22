@@ -1,7 +1,8 @@
 {
   "root": "dist/",
   "routes": {
-    "**": "/src/index.html"
+    "/create-book*": "/src/create-book.html",
+    "/": "/src/index.html"
   },
   "https_only": true,
   "error_page": "index.html",

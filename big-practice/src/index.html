@@ -8,12 +8,12 @@
   <title>Book Managerment</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./style/main.css">
+  <link rel="stylesheet" href="./style/home-main.css">
 </head>
 
 <body>
   <header class="page-header">
-    <div class="container-xxl">
+    <div class="container">
       <h1>
         <a href="javascript:void(0)" class="header__logo">
           <img src="./assets/images/logo.svg" alt="Logo" class="logo__image">
@@ -24,12 +24,12 @@
   </header>
   <main class="page-main">
     <section class="section-layout-2-col">
-      <div class="container-xxl">
+      <div class="container">
         <div class="wrap">
           <aside class="layout-col-left">
           </aside>
           <div class="layout-col-main">
-            <a href="javascript:void(0)" class="creating-logo">
+            <a href="./create-book.html" class="creating-logo">
               <img src="./assets/images/create-logo.svg" alt="Create Logo">
               <span>Create book</span>
             </a>
@@ -70,15 +70,15 @@
             <p>Are you sure you want to delete this book?</p>
           </div>
           <div class="modal-footer modal-footer--delete">
-            <button type="button" class="btn btn-secondary btn-primary--delete" data-dismiss="modal" id="btn-model-cancel">Cancel</button>
-            <button type="button" class="btn btn-primary btn-secondary--delete" data-dismiss="modal" id="btn-modal-delete">Delete</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal" id="btn-model-cancel">Cancel</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" id="btn-modal-delete">Delete</button>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <script type="module" src="./javascript/app.js"></script>
+  <script type="module" src="./javascript/home-main.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
