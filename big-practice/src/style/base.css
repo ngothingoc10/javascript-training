@@ -8,8 +8,6 @@ button {
 /* Base */
 * {
   box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
 }
 
 .container {
@@ -48,7 +46,7 @@ button {
   line-height: 28px;
   text-transform: uppercase;
   text-align: center;
-  color: white;
+  color: var(--secondary-color);
   letter-spacing: 2px;
 }
 
