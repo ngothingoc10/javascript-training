@@ -28,7 +28,7 @@ export class UpdateBookController {
   async handleUpdateBook(body, bookId) {
     const res = this.bookModel.updateBook(body, bookId);
     if (res) {
-      // this.updateBookView.redirectHomePage();
+      this.updateBookView.redirectHomePage();
     } else {
       this.updateBookView.alertMess();
     }
